@@ -1,0 +1,103 @@
+{
+  "operations": [
+    {
+      "operation_id": 1,
+      "type": "income",
+      "income_id": 1,
+      "amount": 255,
+      "date": "2025-01-01",
+      "comment": "Salary",
+      "user_id": 1
+    },
+    {
+      "operation_id": 2,
+      "type": "expense",
+      "expense_id": 1,
+      "amount": 150,
+      "date": "2025-01-02",
+      "comment": "Groceries",
+      "user_id": 1
+    },
+    {
+      "operation_id": 3,
+      "user_id": 1,
+      "type": "income",
+      "amount": 500,
+      "date": "2025-02-01",
+      "comment": "Bonus",
+      "income_id": 1
+    },
+    {
+      "operation_id": 4,
+      "user_id": 1,
+      "type": "expense",
+      "amount": 259,
+      "date": "2025-03-13",
+      "comment": "Food",
+      "expense_id": 1
+    },
+    {
+      "operation_id": 5,
+      "user_id": 1,
+      "type": "income",
+      "amount": 123,
+      "date": "2025-03-05",
+      "comment": "Extra shifts",
+      "income_id": 7
+    },
+    {
+      "operation_id": 6,
+      "user_id": 4,
+      "type": "income",
+      "amount": 500,
+      "date": "2025-02-01",
+      "comment": "Bonus",
+      "income_id": 1
+    },
+    {
+      "operation_id": 8,
+      "user_id": 10,
+      "type": "expense",
+      "amount": 45,
+      "date": "2025-05-01",
+      "comment": "Food for dog",
+      "expense_id": 7
+    },
+    {
+      "operation_id": 10,
+      "user_id": 12,
+      "type": "expense",
+      "amount": 321,
+      "date": "2025-04-29",
+      "comment": "Food",
+      "expense_id": 9
+    },
+    {
+      "operation_id": 11,
+      "user_id": 12,
+      "type": "expense",
+      "amount": 43,
+      "date": "2025-04-30",
+      "comment": "Coffee",
+      "expense_id": 11
+    },
+    {
+      "operation_id": 12,
+      "user_id": 13,
+      "type": "income",
+      "amount": 123,
+      "date": "2025-05-07",
+      "comment": "JOB",
+      "income_id": 16
+    },
+    {
+      "operation_id": 13,
+      "user_id": 1,
+      "type": "income",
+      "amount": 100,
+      "date": "2025-05-24",
+      "comment": "hi",
+      "income_id": 2
+    }
+  ]
+}

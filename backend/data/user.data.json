@@ -1,0 +1,95 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "name": "Vitali",
+      "lastName": "Turkin",
+      "email": "test@test.com",
+      "password": "$2b$10$e0Jyleb/f8IiySUHq/uNf.z3N4yIBoggcv2FeVe.YBJfHNv4AEyv2"
+    },
+    {
+      "user_id": 2,
+      "name": "Gh",
+      "lastName": "Gh",
+      "email": "vitaliturkin@outlook.com",
+      "password": "$2b$10$Grs.W6/AiWjZC5RVs0wt.OLacyRZ7F5l2Zemj4lG.vy1PLWUtdXaK"
+    },
+    {
+      "user_id": 3,
+      "name": "Vi",
+      "lastName": "Tu",
+      "email": "vitaliturkin@outlook.ee",
+      "password": "$2b$10$.oGpgSlJbsUzk5tYCNHjbOTgyRxKOGAKHni0A4DVrrbYPO6xuPZIi"
+    },
+    {
+      "user_id": 4,
+      "name": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "password": "$2b$10$aswO5CcBaD2Cv/U28qM1oO0n9/U797WhS4sqdPWtkbr9FZuWSQXNu"
+    },
+    {
+      "user_id": 5,
+      "name": "Ele",
+      "lastName": "Nae",
+      "email": "davs@mail.ry",
+      "password": "$2b$10$funcjlvnNNe2AKlTeK8A/enXXx20a7Zibp3/TxrE4VDAE0z7EYDta"
+    },
+    {
+      "user_id": 6,
+      "name": "Vital",
+      "lastName": "Turk",
+      "email": "vitalturk@mail.ru",
+      "password": "$2b$10$SQbtC89UNJTvrqJmfh3xou6H/sl7g5vLG29rF610aHpf.ZgCWxlQy"
+    },
+    {
+      "user_id": 7,
+      "name": "Vitali",
+      "lastName": "Turkin",
+      "email": "mailmail@mail.com",
+      "password": "$2b$10$xKaSOS0KmUxm2zh/nEuIvexkTVUji7ZICkcOjckXPqZmPmul4OUcO"
+    },
+    {
+      "user_id": 8,
+      "name": "Vit",
+      "lastName": "Lae",
+      "email": "mail.m@mail.ru",
+      "password": "$2b$10$cHb0DbI4QeOA7cgjKp7JDOYiG1Jq2eAQ6lIZgUwXMsgXInADY1DHm"
+    },
+    {
+      "user_id": 9,
+      "name": "Vit",
+      "lastName": "Lae",
+      "email": "mailvit@mail.ru",
+      "password": "$2b$10$251hItg.tt4i8DophMmUd.KD0hs5YJCguRNpxqCN1fL.lZmQpN/ke"
+    },
+    {
+      "user_id": 10,
+      "name": "Vita",
+      "lastName": "Turk",
+      "email": "ljobpv@mail.com",
+      "password": "$2b$10$OS7PGzA1C79HtTqWWRgsqOIbmDyE5vC7NpgRJLPWrac8wlSYaGO7G"
+    },
+    {
+      "user_id": 11,
+      "name": "Tur",
+      "lastName": "Ruj",
+      "email": "mailtu@mail.ru",
+      "password": "$2b$10$nduBsVj7HD0/vjAehIqdtuLjB0egBQRGdZVan7sbecHTvXByL6QxS"
+    },
+    {
+      "user_id": 12,
+      "name": "Vitali",
+      "lastName": "Turkin",
+      "email": "mailmai@mail.com",
+      "password": "$2b$10$x/81zkuiUhb9HxIlywQpzuhMLzY8lDjS2UCTUe7CtJG2cbkMKid/."
+    },
+    {
+      "user_id": 13,
+      "name": "Rut",
+      "lastName": "Uin",
+      "email": "rutuin@mail.co.uk",
+      "password": "$2b$10$ai7eautoLE5ckY5YeB57NOAFoiY0.F3D2e41qel1iueeiR2LKBIyC"
+    }
+  ]
+}

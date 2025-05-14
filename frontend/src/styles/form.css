@@ -1,0 +1,37 @@
+.form {
+    max-width: 400px;
+}
+
+.form-img {
+    width: 600px;
+}
+
+.form-title {
+    font-family: 'RobotoBold', sans-serif;
+    color: #052C65;
+    font-size: 40px;
+}
+
+.form-input {
+    height: 38px;
+}
+
+/* Adaptive */
+@media screen and (max-width: 700px) {
+    .form-img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 417px) {
+    .form-title {
+        font-size: 30px;
+    }
+    .form-input {
+        font-size: 14px;
+    }
+    .form-link {
+        font-size: 13px;
+    }
+
+}

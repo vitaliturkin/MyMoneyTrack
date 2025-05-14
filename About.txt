@@ -1,0 +1,14 @@
+MyMoneyTrack is a lightweight, user-friendly budgeting application designed specifically for students and young adults aged 18–25. Unlike traditional finance tools, which often feel bloated or overwhelming, this app focuses on:
+
+✅ Simplicity and visual clarity
+
+✅ Manual control over all transactions
+
+✅ Real-time insights with zero distractions
+
+✅ Multi-currency support for international users
+
+✅ Strong privacy — no automatic bank syncing or tracking
+
+The app was built using a user-centred design process and refined through iterative feedback sessions and usability testing. It supports the creation, editing, and deletion of income and expenses, dynamic balance updates, and chart-based visualisation for better financial awareness.
+Ideal for students who want clarity and control — without the noise.

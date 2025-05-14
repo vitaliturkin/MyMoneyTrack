@@ -1,0 +1,481 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.0",
+    "title": "Budget App API",
+    "description": "This API provides endpoints for managing operations (income/expenses), balance tracking, user authentication, and category management."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Local development server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "XAuthToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-auth-token"
+      }
+    },
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "example": "John" },
+          "lastName": { "type": "string", "example": "Doe" },
+          "email": { "type": "string", "example": "john.doe@example.com" },
+          "password": { "type": "string", "example": "SecurePassword123!" }
+        }
+      },
+      "Balance": {
+        "type": "object",
+        "properties": {
+          "user_id": { "type": "integer", "example": 1 },
+          "balance": { "type": "number", "example": 1000 }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "title": { "type": "string", "example": "Salary" },
+          "type": { "type": "string", "enum": ["income", "expense"], "example": "income" }
+        }
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "operation_id": { "type": "integer", "example": 1 },
+          "type": { "type": "string", "enum": ["income", "expense"], "example": "income" },
+          "category_id": { "type": "integer", "example": 1 },
+          "amount": { "type": "number", "example": 250 },
+          "date": { "type": "string", "example": "2025-01-01" },
+          "comment": { "type": "string", "example": "Salary" }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "User Registration",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "User registered successfully" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "User Login",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string", "example": "john.doe@example.com" },
+                  "password": { "type": "string", "example": "SecurePassword123!" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful, returns JWT token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accessToken": { "type": "string", "example": "your-access-token" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/balance": {
+      "get": {
+        "summary": "Get user balance",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Balance"],
+        "responses": {
+          "200": {
+            "description": "User's balance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Balance"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Balance not found for this user"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update user balance",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Balance"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "balance": { "type": "number", "example": 2500 }
+                },
+                "required": ["balance"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Balance updated successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Balance" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Get all categories (income & expense)",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Categories"],
+        "responses": {
+          "200": {
+            "description": "List of all categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "income": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Category" }
+                    },
+                    "expense": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Category" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new category",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Categories"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string", "example": "Freelance" },
+                  "type": { "type": "string", "enum": ["income", "expense"], "example": "income" }
+                },
+                "required": ["title", "type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Category added successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Category" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data"
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "put": {
+        "summary": "Update a category title",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Categories"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Category ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Updated Title"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["income", "expense"],
+                    "example": "income"
+                  }
+                },
+                "required": ["title", "type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Category updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Category updated successfully" },
+                    "category": {
+                      "type": "object",
+                      "properties": {
+                        "income_id": { "type": "integer", "example": 1 },
+                        "expense_id": { "type": "integer", "example": null },
+                        "title": { "type": "string", "example": "Updated Title" },
+                        "user_id": { "type": "integer", "example": 1 }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Category not found or does not belong to user"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a category",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Categories"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Category ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Category type (income/expense)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["income", "expense"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Category deleted successfully" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Cannot delete category, it is used in operations"
+          },
+          "404": {
+            "description": "Category not found or does not belong to user"
+          }
+        }
+      }
+    },
+    "/operations": {
+      "get": {
+        "summary": "Get all operations",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Operations"],
+        "responses": {
+          "200": {
+            "description": "List of operations",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Operation" } }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new operation",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Operations"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string", "enum": ["income", "expense"], "example": "income" },
+                  "category_id": { "type": "integer", "example": 1 },
+                  "amount": { "type": "number", "example": 500 },
+                  "date": { "type": "string", "example": "2025-02-01" },
+                  "comment": { "type": "string", "example": "Bonus" }
+                },
+                "required": ["type", "amount", "date", "category_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operation created successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Operation" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/{id}": {
+      "put": {
+        "summary": "Update an existing operation (cannot change type)",
+        "description": "Updates the details of an operation (amount, date, comment, category_id), but does not allow changing the operation type (income/expense).",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Operation ID to update",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": { "type": "number", "example": 300 },
+                  "date": { "type": "string", "example": "2025-03-01" },
+                  "comment": { "type": "string", "example": "Groceries" },
+                  "category_id": { "type": "integer", "example": 2 }
+                },
+                "description": "Fields that can be updated. The operation's type is not updatable.",
+                "required": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body or validation error"
+          },
+          "404": {
+            "description": "Operation not found or does not belong to user"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an operation",
+        "security": [{ "XAuthToken": [] }],
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Operation ID",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation deleted successfully"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "expense": [
+    {
+      "expense_id": 1,
+      "title": "Groceries",
+      "user_id": 1
+    },
+    {
+      "expense_id": 2,
+      "title": "Rent",
+      "user_id": 1
+    },
+    {
+      "expense_id": 3,
+      "title": "Food",
+      "user_id": 2
+    },
+    {
+      "expense_id": 4,
+      "title": "Dog",
+      "user_id": 1
+    },
+    {
+      "expense_id": 5,
+      "title": "Extra",
+      "user_id": 1
+    },
+    {
+      "expense_id": 6,
+      "title": "Shop",
+      "user_id": 10
+    },
+    {
+      "expense_id": 7,
+      "title": "Dog",
+      "user_id": 10
+    },
+    {
+      "expense_id": 8,
+      "title": "Extra",
+      "user_id": 10
+    },
+    {
+      "expense_id": 9,
+      "title": "Groceries",
+      "user_id": 12
+    },
+    {
+      "expense_id": 10,
+      "title": "Dog",
+      "user_id": 12
+    },
+    {
+      "expense_id": 11,
+      "title": "Extra",
+      "user_id": 12
+    },
+    {
+      "expense_id": 12,
+      "title": "wedfc",
+      "user_id": 13
+    }
+  ]
+}

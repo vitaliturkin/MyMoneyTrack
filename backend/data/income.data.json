@@ -1,0 +1,74 @@
+{
+  "income": [
+    {
+      "income_id": 1,
+      "title": "Salary",
+      "user_id": 1
+    },
+    {
+      "income_id": 2,
+      "title": "Savings",
+      "user_id": 1
+    },
+    {
+      "income_id": 5,
+      "title": "Freelance",
+      "user_id": 2
+    },
+    {
+      "income_id": 6,
+      "title": "Freelance",
+      "user_id": 2
+    },
+    {
+      "income_id": 7,
+      "title": "Freelance",
+      "user_id": 1
+    },
+    {
+      "income_id": 8,
+      "title": "Freelance",
+      "user_id": 4
+    },
+    {
+      "income_id": 9,
+      "title": "Freelance",
+      "user_id": 4
+    },
+    {
+      "income_id": 10,
+      "title": "Dog",
+      "user_id": 1
+    },
+    {
+      "income_id": 11,
+      "title": "Freelance",
+      "user_id": 7
+    },
+    {
+      "income_id": 12,
+      "title": "Salary",
+      "user_id": 10
+    },
+    {
+      "income_id": 13,
+      "title": "Freelance",
+      "user_id": 10
+    },
+    {
+      "income_id": 14,
+      "title": "Extra",
+      "user_id": 10
+    },
+    {
+      "income_id": 15,
+      "title": "Savings",
+      "user_id": 10
+    },
+    {
+      "income_id": 16,
+      "title": "Salaryr",
+      "user_id": 13
+    }
+  ]
+}
